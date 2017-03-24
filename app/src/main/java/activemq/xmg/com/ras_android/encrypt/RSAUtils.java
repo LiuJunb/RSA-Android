@@ -32,8 +32,12 @@ import activemq.xmg.com.ras_android.sign.Base64;
  */
 public final class RSAUtils
 {
-    private static String RSA = "RSA";
-
+    /*android客户端用这个*/
+    private static String RSA = "RSA/ECB/PKCS1Padding";
+    /*java 服务器端用这个*/
+//    private static String RSA = "RSA";
+    
+    
     /**
      * 随机生成RSA密钥对(默认密钥长度为1024)
      *
