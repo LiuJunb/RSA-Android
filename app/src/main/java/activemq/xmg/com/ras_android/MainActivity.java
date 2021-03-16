@@ -61,27 +61,51 @@ public class MainActivity extends AppCompatActivity {
     TextView tvTextRasSignJiemi;
 
     private static String content = null;
-    /* 密钥内容 base64 code */
-    private static String PUCLIC_KEY = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC+iRXVDOsZikPvaIwzTDhcKx3r\n" +
-            "SZNbB/H/MrdUj/GkiSgDL7bTXjyb0cAwefD+/JxXBy6EMuPzBMt7flTWNXGBUNvw\n" +
-            "HpaUPicdVAH4h8V0PvUiQKG/pS6oynMvARjZIHWBg8VEqaTcBdpuq+1jhtDxhuBM\n" +
-            "SFpt7b8gpWo//BG0ZQIDAQAB";
+    /*第二组 */
 
-    private static String PRIVATE_KEY = "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAL6JFdUM6xmKQ+9o\n" +
-            "jDNMOFwrHetJk1sH8f8yt1SP8aSJKAMvttNePJvRwDB58P78nFcHLoQy4/MEy3t+\n" +
-            "VNY1cYFQ2/AelpQ+Jx1UAfiHxXQ+9SJAob+lLqjKcy8BGNkgdYGDxUSppNwF2m6r\n" +
-            "7WOG0PGG4ExIWm3tvyClaj/8EbRlAgMBAAECgYAX3y8IEWVHPuaCEVQ3fR42lgRa\n" +
-            "nU5EAnvUYHNNufcpiTGlLI44bz8iuqXcrPp/yACCetjeIU4j/X7NCyfv6qQ8ux/0\n" +
-            "WdGY4WZtc9EV38vgxzlfOHWrtJ1qVBX6vbs8TZabaz9XSaE+u+akhGACf5dHm4HN\n" +
-            "uhwDIvtu0AwBzwMIBQJBAN5BI8q0S5EI3nu4Bi3ZzssFRwh9TD8Fa91TPntFGi0J\n" +
-            "q3iGTq2qb2j3TKOn0lZBVg82yicNlxklOemwWEqxDlcCQQDbdw2+2y9MNVJSxOvO\n" +
-            "wEKdzcvimB1m7896GcWRpOp6/BBZyj8A20QztpEmJ5v9V8sFIjiVqdWlWWar7Lqr\n" +
-            "9SWjAkBRcQ87hSu3nsdgEIP7IzgavvlTjA53fXYUKR/ZLe40mLmDtbt4+d5PWWd1\n" +
-            "BNcXkmOFua8D9n/qz/BTyLHh1NWLAkEAl6MA6lhDq+JDyVCqpaYN4T7qmtwDpLYZ\n" +
-            "owHfkqxiHyu+mGu3cH4P97MzQyunCjr42ck1U6OPLLpCyJO+v0WZBQJASReT45oU\n" +
-            "Xvp/eK/JEdMu68GFzDp9gbsKpRRNv2/fL+ZCRzEWzkElfDWmJy5g/FhkEatgfAuZ\n" +
-            "Cxl0w8M0aLiBQw==";
-
+    /*第三组*/
+    private static String PUCLIC_KEY =
+//            "-----BEGIN PUBLIC KEY-----\n" +
+            "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqSszNNW6+0btURKZBX8C\n" +
+                    "1xQKl11OYyit6WBOzrXj/S3fgK7du4LrtKiOwNzyh7lc+pYDGOSUfXcPIMzrZ/S1\n" +
+                    "TdDkdYo8jKvwVUHHH5H+vU/i7nCQCCMvfHnWIk1i9D07RVdi6vBvZTH4T0/jhS7L\n" +
+                    "hPR32iqDX0VsoavsWOTQ+GcdHaxleMcyV43moTx1eXeiKT+wJTBRT+okZEZPeL8l\n" +
+                    "xyfnubRCDvAHph/uoCepE8bu9IMtwyJN7lXRPTZnpuJkUVNNSFOIzN9TgfzSDnoz\n" +
+                    "ipE6rC0ywNlVHmoAfP3FLBDR/YRNuTtlvGBj26bL+9U91EDeqO4xiAhv4yIBRO9F\n" +
+                    "NQIDAQAB\n"
+//                    + "-----END PUBLIC KEY-----"
+            ;
+    private static String PRIVATE_KEY =
+//            "-----BEGIN PRIVATE KEY-----\n" +
+            "MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCpKzM01br7Ru1R\n" +
+                    "EpkFfwLXFAqXXU5jKK3pYE7OteP9Ld+Art27guu0qI7A3PKHuVz6lgMY5JR9dw8g\n" +
+                    "zOtn9LVN0OR1ijyMq/BVQccfkf69T+LucJAIIy98edYiTWL0PTtFV2Lq8G9lMfhP\n" +
+                    "T+OFLsuE9HfaKoNfRWyhq+xY5ND4Zx0drGV4xzJXjeahPHV5d6IpP7AlMFFP6iRk\n" +
+                    "Rk94vyXHJ+e5tEIO8AemH+6gJ6kTxu70gy3DIk3uVdE9Nmem4mRRU01IU4jM31OB\n" +
+                    "/NIOejOKkTqsLTLA2VUeagB8/cUsENH9hE25O2W8YGPbpsv71T3UQN6o7jGICG/j\n" +
+                    "IgFE70U1AgMBAAECggEAG9Qkd1OVj9KKJaUWkSXktLbySxYpV/yQJ20VacHYQIT0\n" +
+                    "WHnrtfYCilSULzvpldQzbHGTDtxDZSRZ076CFzbVQHjVrFRSQ53hSlUoyZO9wSzM\n" +
+                    "GwdfWkdXf3WXeUsbtSwBfRW0CwwEdzQyMfHlbrpU9ok00ineNKT6Ctp6ZeE2UzZ2\n" +
+                    "simA4fkOki0supztEZlcFpM6/6yJvP2OQFuggccSoMQ2Y2JTVLCCQe3mHQMQxOh0\n" +
+                    "Dj95aSj4vh9A0qXKPsyvu3eImTZHFZa1JWsk6BVoMCK6kzPyVBX0zYE2rKM7xE7X\n" +
+                    "8sFOAc7rDBWD6t6WA7NrI3QrQiDYKYYp6gA6ZycNYQKBgQDadYUDCTMa1vVjAWAY\n" +
+                    "pKaRWv9YDzX3esAdj+qGJkzQ8qWSZ0lxlPsxPcJsI2rAR2f4EnIDEQAyVSUQhhNF\n" +
+                    "VvGSgCY3HnIAEJCE0DVO9NvtOL7XDJSc3tPv9oiITLXepA+bBZDg0r4wD3Dg1QF1\n" +
+                    "s2C1iAHU5bH5ZclvKdht2UIArQKBgQDGPUthsD0ljdoNze9p/2HTVIZCydZRuRD4\n" +
+                    "Ljzxui1FFzbFgVJEr7hPwqplhReTJiW3A8v7BgppgU12XuJuHhm+giUVMjHhvJ8Y\n" +
+                    "31D3iuByZu78Tve+pzJfKTXJEbj9mVkjXURO4iU8cWRvPKGQc+Aabjf+GLdteypJ\n" +
+                    "T07WeAN/qQKBgQC0alHLTBG0nMpTVZNzRqd5a9ltdEJxfCKlR3G8EG1oMryiyEJT\n" +
+                    "V2KMLCEhBa7n1RD8Qt99wNCUwNS3bMMFhORExSjKZI5pl0SDKyCbcIUgyLhzCaTC\n" +
+                    "WRRXHRds2U1p7bwlntcjlWgUcOwcAk4OUnIP+Z7poDj3aySMddaUAdUMkQKBgQC7\n" +
+                    "YuMnk00pe338AIbn3kSdW8+RwHJ7S4GT5zkqkf8KyRe3+DdIwAVsN6mUTwtqx+ts\n" +
+                    "pQUi4qHi+xu64ZQN3RwerazZ7VmjdQW6oBVL+RWSbmRHUWnz6N2/gBfcWYlRBqxw\n" +
+                    "tk/EdRYXnWP/lgNupWnX8gmxgbGZpovhQjtWlZlRCQKBgQDZaXluQjhIiSezTnBk\n" +
+                    "zsZsMV19m9emavrUYI5IxNVRJfgSwF4mTrij1S0ymMuou3sxTIfzMRFKuzK5sp3w\n" +
+                    "bLaRRklR7rtKbhxd4bcDK4XaxaryDAHJi5GsfmcMsCnxpIN3zUIN67VbM7LwvfqF\n" +
+                    "9VVTzqQ3lnWEu5LR4pOVDKkfkw==\n"
+//                  +  "-----END PRIVATE KEY-----"
+            ;
+    String jiamiS = "BAK/wm0vqmMssxzroaBoyhiBym/bi0jy2oiW4CBksyPbRIHVXdo+b0nLDDneVBTewmzvAaCdGFhMOeaDa30E0nMa7Uzlky+i65wDpzjCoUqcx3gLnlIxSExW4TtpZhB/ggdbHtjCgfQYQOw4JJQisRZQASjfxvJkBJYDi2IDzB5AhruX/xPoMBu9NqQclQ+CSHjlEVtvmCegf2Zov9hJKHwIixoDz+QrNDOFxu1YWDlhLoQvj+Jkq+F10q47HVBAq+hBxJ2vfuG3MdMXDmPkmverPVqmTgy3yH0e5HU+OndYIvgabABW9X3AtneAwOrNK94E44ZY3B0dOI7TuRniOw==";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,8 +119,6 @@ public class MainActivity extends AppCompatActivity {
      * 或者edText输入的内容
      */
     private void getContent() {
-//       content="SFDDDDFSFSFSDFFSFSDFSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSDFSDFSDFFSFSDFSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSDFSDFSDFFSFSDFSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSDFSDFSDFFSFSDFSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSDFSDFSDFFSFSDFSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSDFSDFSDFFSFSDFSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSDFSDFSDFFSFSDFSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSDFSDFSDFFSFSDFSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSDFSDFSDFFSFSDFSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSDFSDFSDFFSFSDFSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSDFSDFSDFFSFSDFSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSDFSDFSDFFSFSDFSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSDFSDFSDFFSFSDFSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSDFSDFSDFFSFSDFSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSDFSDFSDFFSFSDFSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSDFSDFSDFSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSFSFSDFSDFSDFSDFSDFSFSDFSFSSDFSDFSDFSDFSFSDFSFSDF";
-//       content = "143SDFFSFSDFS423";
         content = edText.getText().toString().trim();
     }
 
@@ -125,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                 String sign = tvTextRasSignJiami.getText().toString().trim();
 //                content = "143SDFFSFSDFS423";
                 boolean verify = RSA.verify(content, sign, PUCLIC_KEY, "utf-8");
-                tvTextRasSignJiemi.setText(verify+"");
+                tvTextRasSignJiemi.setText(verify + "");
             }
         });
 
@@ -147,7 +169,11 @@ public class MainActivity extends AppCompatActivity {
 //                    String afterencrypt = Base64Utils.encode(encryptByte);
 
 
-                    String afterencrypt =RSAUtils.encrypt(PUCLIC_KEY,content);
+//                    String afterencrypt = RSAUtils.encrypt(PUCLIC_KEY, content);
+                    String afterencrypt = RSAUtils.encrypt(PRIVATE_KEY, content);
+                    if (jiamiS.equals(afterencrypt)) {
+                        Toast.makeText(MainActivity.this, "匹配。。", Toast.LENGTH_SHORT).show();
+                    }
                     Log.d("TAG", "afterencrypt=" + afterencrypt);
                     tvTextRasJiami.setText(afterencrypt);
 
@@ -172,8 +198,9 @@ public class MainActivity extends AppCompatActivity {
 //                    /**私钥解密*/
 //                    byte[] decryptByte = RSAUtils.decryptData(Base64Utils.decode(jiami), privateKey);
 //                    String decryptStr = new String(decryptByte);
-                    String decryptStr =RSAUtils.decrypt(PRIVATE_KEY,jiami);
-                    Log.d("TAG", "decryptStr=" + decryptStr);
+//                    String decryptStr = RSAUtils.decrypt(PRIVATE_KEY, jiami);
+                    String decryptStr = RSAUtils.decrypt(PUCLIC_KEY, jiami);
+//                    Log.d("TAG", "decryptStr=" + decryptStr);
                     tvTextRasJiemi.setText(decryptStr);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -215,8 +242,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
-
 
 
 }
